@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kiki.chat.firebase.com.firebasechat">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- main login -->
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <!-- registration -->
+        <activity
+            android:name=".ui.registration.RegistrationActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- splash -->
+        <activity
+            android:name=".ui.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- home -->
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- profile -->
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- search -->
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- send message -->
+        <activity
+            android:name=".ui.message.SendMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.message.SendMessageToGroupActivity"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "358268579240",
+    "firebase_url": "https://fir-chatandroid-a29c8.firebaseio.com",
+    "project_id": "fir-chatandroid-a29c8",
+    "storage_bucket": "fir-chatandroid-a29c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358268579240:android:e346ec7fcae60966",
+        "android_client_info": {
+          "package_name": "kiki.chat.firebase.com.firebasechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "358268579240-k2s2sj9q6lvd84mfg3cb8veju0v6jtht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kiki.chat.firebase.com.firebasechat",
+            "certificate_hash": "08ebc1b6af4ee87c15d2d0b4af44b9061e063333"
+          }
+        },
+        {
+          "client_id": "358268579240-f7c197p8tpkg0g5qf8foahcm25qjv7ap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyua1lOTypmbVC4mFUIrN1UzXkam7oyxM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "358268579240-f7c197p8tpkg0g5qf8foahcm25qjv7ap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

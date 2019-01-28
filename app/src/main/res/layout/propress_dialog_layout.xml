@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blackAlpha030">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/custom_progress_background"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:layout_centerInParent="true">
+
+        <ProgressBar
+            android:layout_width="48dp"
+            android:layout_height="48dp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Đang xử lý ..."
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_marginStart="8dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

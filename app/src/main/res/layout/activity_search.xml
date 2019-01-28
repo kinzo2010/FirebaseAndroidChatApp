@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="kiki.chat.firebase.com.firebasechat.ui.search.SearchViewModel"/>
+
+    </data>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kiki.chat.firebase.com.firebasechat.ui.search.SearchActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/top_bar_elevation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/arrow_left"
+                android:padding="12dp"
+                android:onClick="@{viewModel::onClickBack}"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/search"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/white"
+                android:layout_marginEnd="48dp"/>
+
+        </LinearLayout>
+
+
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:lines="1"
+            android:inputType="text"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            android:background="@drawable/custom_search_bar_background"
+            android:hint="@string/enter_name_or_email"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:textColorHint="@color/colorAccent"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:id="@+id/progressBar"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_user_list"
+        app:adapterVertical="@{viewModel.userListAdapter}"/>
+
+
+
+</LinearLayout>
+</layout>

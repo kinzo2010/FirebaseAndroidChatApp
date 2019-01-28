@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="kiki.chat.firebase.com.firebasechat.ui.main.MainViewModel"/>
+
+    </data>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kiki.chat.firebase.com.firebasechat.ui.main.MainActivity"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="2">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/email"
+                android:textColor="@color/black"
+                android:background="@drawable/custom_edit_text_circle_white"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:elevation="@dimen/edit_text_elevation"
+                android:text="@={viewModel.email}"/>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/password"
+                android:textColor="@color/black"
+                android:background="@drawable/custom_edit_text_circle_white"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:elevation="@dimen/edit_text_elevation"
+                android:layout_marginTop="16dp"
+                android:inputType="textPassword"
+                android:text="@={viewModel.password}"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/login"
+                android:gravity="center"
+                android:layout_marginTop="32dp"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_login_button"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:textSize="20sp"
+                android:onClick="@{viewModel::onClickLogin}"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registration"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:onClick="@{viewModel::onClickRegistration}"/>
+
+</RelativeLayout>
+</layout>

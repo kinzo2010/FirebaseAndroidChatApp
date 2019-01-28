@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="kiki.chat.firebase.com.firebasechat.ui.home.HomeViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="kiki.chat.firebase.com.firebasechat.ui.home.HomeActivity">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/top_bar_elevation">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:src="@color/white"
+                    android:onClick="@{viewModel::onClickAvatar}"
+                    app:imageUrl="@{viewModel.avatarUrl}"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="64dp"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:text="@{viewModel.fullName}"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_light"
+                        android:text="@{viewModel.email}"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_search"
+                    android:layout_alignParentEnd="true"
+                    android:padding="8dp"
+                    android:onClick="@{viewModel::onClickSearch}"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout> <!--top navigation-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:weightSum="2"
+                android:background="@color/colorPrimary"
+                android:elevation="@dimen/top_bar_elevation">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/messageIndicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/custom_tab_active_background"
+                        android:elevation="@dimen/edit_text_elevation"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center"
+                        android:paddingEnd="24dp"
+                        android:paddingStart="24dp"
+                        android:text="@string/message"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:layout_marginTop="8dp"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/groupChatIndicator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/custom_tab_disable_background"
+                        android:elevation="@dimen/edit_text_elevation"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center"
+                        android:paddingEnd="24dp"
+                        android:paddingStart="24dp"
+                        android:text="@string/group_chat"
+                        android:textColor="@color/grayDark"
+                        android:textSize="18sp"
+                        android:layout_marginTop="8dp"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/buttonAdd"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/custom_rounded"
+            android:backgroundTint="@color/colorPrimary"
+            android:elevation="@dimen/float_button_elevation"
+            android:padding="12dp"
+            android:src="@drawable/ic_create"
+            android:onClick="@{viewModel::onClickAdd}"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blackAlpha030"
+            android:elevation="@dimen/float_button_elevation"
+            android:onClick="@{viewModel::onClickBlackView}"
+            android:id="@+id/blackView"
+            android:alpha="0"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:elevation="@dimen/dialog_elevation"
+            android:background="@drawable/custom_add_group_chat_dialog"
+            android:id="@+id/addGroupDialog"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:background="@drawable/custom_edit_text_enter_message"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:lines="1"
+                android:text="@={viewModel.groupName}"
+                android:hint="@string/enter_group_name"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/roboto"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="@string/create_group"
+                    android:gravity="center"
+                    android:background="@drawable/custom_login_button"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="@{viewModel::onClickCreateGroup}"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel"
+                    android:gravity="center"
+                    android:background="@drawable/custom_rounded"
+                    android:backgroundTint="@color/redA01"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:onClick="@{viewModel::onClickCancel}"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

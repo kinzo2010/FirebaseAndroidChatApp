@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="kiki.chat.firebase.com.firebasechat.ui.message.SendMessageToGroupViewModel"/>
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="kiki.chat.firebase.com.firebasechat.ui.message.SendMessageToGroupActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:elevation="@dimen/top_bar_elevation"
+            android:background="@color/colorPrimary"
+            android:id="@+id/topAppBar">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/arrow_left"
+                    android:padding="12dp"
+                    android:onClick="@{viewModel::onClickBack}"/>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:text="@{viewModel.groupName}"
+                        android:layout_marginEnd="48dp"
+                        android:fontFamily="@font/roboto"
+                        android:textSize="16sp"
+                        android:lines="1"
+                        android:ellipsize="end"/>
+
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottomAction"
+            android:layout_below="@id/topAppBar"
+            tools:listitem="@layout/item_chat_to_row"
+            app:adapterVertical="@{viewModel.userChatMessageListAdapter}"
+            android:id="@+id/messageListView"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorPrimary"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:id="@+id/bottomAction">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_edit_text_enter_message"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="64dp"
+                android:layout_centerVertical="true"
+                android:hint="@string/type_message"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:inputType="textMultiLine"
+                android:text="@={viewModel.message}"/>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_send"
+                android:background="@drawable/custom_rounded"
+                android:padding="12dp"
+                android:layout_gravity="end"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:onClick="@{viewModel::onClickSendMessage}"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

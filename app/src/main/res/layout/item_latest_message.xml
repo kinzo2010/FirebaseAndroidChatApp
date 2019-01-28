@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemViewModel"
+            type="kiki.chat.firebase.com.firebasechat.viewmodels.LatestMessageItemViewModel"/>
+
+    </data>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:onClick="@{itemViewModel::onClickItem}">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@color/colorAccent"
+        android:layout_marginStart="16dp"
+        app:imageUrl="@{itemViewModel.avatarUrl}"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="16dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{itemViewModel.fullName+ ` ● `+ itemViewModel.email}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{itemViewModel.message }"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto"
+            android:textSize="14sp"
+            android:textColor="@color/grayDark"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/new_message"
+            android:gravity="end"
+            android:textSize="12sp"
+            android:textColor="@color/redA01"
+            android:fontFamily="@font/roboto_bold"
+            android:visibility="@{itemViewModel.newMessageVisibility}"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{itemViewModel.time}"
+            android:gravity="end"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_light"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grayLight"/>
+</LinearLayout>
+</layout>

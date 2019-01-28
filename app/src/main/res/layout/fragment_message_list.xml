@@ -1,0 +1,38 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="kiki.chat.firebase.com.firebasechat.ui.home.message.MessageListViewModel"/>
+    </data>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kiki.chat.firebase.com.firebasechat.ui.home.message.MessageListFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_latest_message"
+        app:adapterVertical="@{viewModel.latestMessageListAdapter}"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bạn chưa có tin nhắn nào.\nNhấn vào nút phía dưới\n để thêm tin nhắn mới."
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:textColor="@color/grayDark"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="20sp"
+        android:id="@+id/emptyNotificationText"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+</RelativeLayout>
+</layout>

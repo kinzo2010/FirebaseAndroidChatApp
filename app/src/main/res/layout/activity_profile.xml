@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="kiki.chat.firebase.com.firebasechat.ui.profile.ProfileViewModel" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        tools:context="kiki.chat.firebase.com.firebasechat.ui.profile.ProfileActivity">
+
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:elevation="@dimen/float_button_elevation"
+            android:onClick="@{viewModel::onClickBack}"
+            android:padding="12dp"
+            android:src="@drawable/arrow_left" />
+
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/editButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:elevation="@dimen/float_button_elevation"
+            android:onClick="@{viewModel::onClickEdit}"
+            android:padding="12dp"
+            android:src="@drawable/ic_create" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_centerInParent="true"
+                    android:onClick="@{viewModel::onClickAvatar}"
+                    android:src="@color/white"
+                    app:imageUrl="@{viewModel.avatarUrl}"
+                    android:id="@+id/avatar"/>
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/icon_add"
+                    android:padding="4dp"
+                    android:background="@drawable/custom_rounded"
+                    android:backgroundTint="@color/grayLight"
+                    android:tint="@color/redA01"
+                    android:layout_centerHorizontal="true"
+                    android:translationX="16dp"
+                    android:id="@+id/editAvatarLabel"
+                    android:visibility="gone"
+                    android:layout_alignParentTop="true"/>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/editTextFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:background="@{null}"
+                android:enabled="false"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@={viewModel.fullName}"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_light"
+                android:text="@{viewModel.email}"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/action_button_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_rounded"
+                    android:backgroundTint="@color/colorAccent"
+                    android:elevation="@dimen/edit_text_elevation"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:onClick="@{viewModel::onClickSendMessage}"
+                    android:text="@string/send_message"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/friendButton"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_rounded"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/edit_text_elevation"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:onClick="@{viewModel::onClickFriendButton}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:background="@color/white"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/redA01"
+            android:elevation="@dimen/bottom_navigation_bar_elevation"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:onClick="@{viewModel::onClickLogout}"
+            android:text="@string/logout"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:elevation="@dimen/bottom_navigation_bar_elevation"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:onClick="@{viewModel::onClickSave}"
+            android:text="@string/save"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:translationY="49dp" />
+
+    </RelativeLayout>
+</layout>

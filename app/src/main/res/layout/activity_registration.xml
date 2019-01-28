@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kiki.chat.firebase.com.firebasechat.ui.registration.RegistrationViewModel"/>
+
+
+    </data>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kiki.chat.firebase.com.firebasechat.ui.registration.RegistrationActivity"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:onClick="@{viewModel::onClickBackToLogin}">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:src="@drawable/arrow_left"
+            android:padding="12dp"
+            android:id="@+id/arrow_left"
+            android:layout_marginStart="8dp"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/user_avatar_default"
+                android:onClick="@{viewModel::onClickAvatar}"
+                app:civ_border_color="@color/grayLight"
+                app:civ_border_width="1dp"
+                android:id="@+id/avatar"/>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/icon_add"
+                android:tint="@color/redA01"
+                android:layout_above="@id/avatar"
+                android:layout_centerHorizontal="true"
+                android:translationX="24dp"
+                android:translationY="16dp"
+                android:background="@drawable/custom_rounded"
+                android:backgroundTint="@color/grayLight"
+                android:padding="4dp"/>
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="3">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/full_name"
+                android:textColor="@color/black"
+                android:background="@drawable/custom_edit_text_circle_white"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:elevation="@dimen/edit_text_elevation"
+                android:text="@={viewModel.fullName}"/>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/email"
+                android:textColor="@color/black"
+                android:background="@drawable/custom_edit_text_circle_white"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:layout_marginTop="16dp"
+                android:elevation="@dimen/edit_text_elevation"
+                android:text="@={viewModel.email}"/>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/password"
+                android:textColor="@color/black"
+                android:background="@drawable/custom_edit_text_circle_white"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:elevation="@dimen/edit_text_elevation"
+                android:layout_marginTop="16dp"
+                android:inputType="textPassword"
+                android:text="@={viewModel.password}"/>
+
+            <android.support.v7.widget.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:hint="@string/retype_password"
+                android:textColor="@color/black"
+                android:background="@drawable/custom_edit_text_circle_white"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:elevation="@dimen/edit_text_elevation"
+                android:layout_marginTop="16dp"
+                android:inputType="textPassword"
+                android:text="@={viewModel.passwordRetype}"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="@string/registration"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:background="@drawable/custom_login_button"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:textSize="20sp"
+                android:onClick="@{viewModel::onClickRegistration}"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+</layout>

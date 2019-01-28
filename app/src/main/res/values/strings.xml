@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">FireBase Chat</string>
+    <string name="login">Đăng nhập</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="registration">Đăng ký</string>
+    <string name="retype_password">Nhập lại mật khẩu</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="message">Tin nhắn</string>
+    <string name="group_chat">Nhóm chat</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="send_message">Nhắn tin</string>
+    <string name="remove_friend">Hủy bạn bè</string>
+    <string name="enter_name_or_email">Nhập tên hoặc email cần tìm kiếm</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="type_message">Viết tin nhắn</string>
+    <string name="new_message">Tin nhắn mới</string>
+    <string name="save">Lưu thay đổi</string>
+    <string name="enter_group_name">Nhập tên nhóm chat</string>
+    <string name="create_group">Tạo nhóm</string>
+    <string name="cancel">Hủy bỏ</string>
+</resources>
